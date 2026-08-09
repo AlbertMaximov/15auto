@@ -1,0 +1,8 @@
+{
+  "name": "15 lending AI-проекты для автодилеров ",
+  "description": "Современные AI-решения для повышения эффективности и роста продаж в автодилерских центрах.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
