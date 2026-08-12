@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Check } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
@@ -152,71 +152,18 @@ export default function Hero() {
             />
           </div>
 
-          {/* Elegant connection form right under the picture */}
-          <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white p-6 sm:p-8 rounded-2xl shadow-[0_15px_45px_rgba(37,99,235,0.15)] border border-blue-500/30">
-            <h3 className="text-sm font-display font-semibold text-white mb-4 tracking-tight flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-300 animate-pulse"></span>
-              Запись на демонстрацию
+          {/* Elegant custom AI solution message card right under the picture */}
+          <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white p-6 sm:p-8 rounded-2xl shadow-[0_15px_45px_rgba(37,99,235,0.15)] border border-blue-500/30 flex flex-col justify-center">
+            <h3 className="text-lg font-display font-semibold text-white mb-3 tracking-tight flex items-center gap-2.5">
+              <Sparkles className="w-5 h-5 text-blue-300 animate-pulse shrink-0" />
+              Индивидуальная разработка под ваши задачи
             </h3>
-            
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1.5">
-                <input 
-                  type="text" 
-                  placeholder="Имя" 
-                  required 
-                  className="w-full p-3 text-sm rounded-xl border border-blue-400/30 bg-blue-950/45 focus:ring-4 focus:ring-blue-300/20 focus:border-blue-300 focus:bg-blue-950/60 transition-all outline-none font-sans text-white placeholder:text-blue-200/60" 
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Пожалуйста, введите ваше имя.')}
-                  onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <input 
-                  type="tel" 
-                  placeholder="Телефон" 
-                  required 
-                  className="w-full p-3 text-sm rounded-xl border border-blue-400/30 bg-blue-950/45 focus:ring-4 focus:ring-blue-300/20 focus:border-blue-300 focus:bg-blue-950/60 transition-all outline-none font-sans text-white placeholder:text-blue-200/60" 
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Пожалуйста, введите ваш номер телефона.')}
-                  onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
-                />
-              </div>
-              <div className="flex flex-col gap-1.5 sm:col-span-2">
-                <input 
-                  type="email" 
-                  placeholder="E-mail" 
-                  required 
-                  className="w-full p-3 text-sm rounded-xl border border-blue-400/30 bg-blue-950/45 focus:ring-4 focus:ring-blue-300/20 focus:border-blue-300 focus:bg-blue-950/60 transition-all outline-none font-sans text-white placeholder:text-blue-200/60" 
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Пожалуйста, введите ваш адрес электронной почты.')}
-                  onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
-                />
-              </div>
-              <button 
-                type="submit"
-                disabled={status === 'submitting'}
-                className="sm:col-span-2 bg-white text-blue-700 hover:bg-blue-50 py-3.5 rounded-xl font-display font-semibold text-sm hover:shadow-[0_8px_25px_-8px_rgba(255,255,255,0.4)] hover:shadow-[0_15px_35px_-6px_rgba(255,255,255,0.3)] transition-all duration-300 border border-transparent relative overflow-hidden group disabled:opacity-50 cursor-pointer text-center"
-              >
-                {/* Dynamic Sweep Light Effect */}
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-blue-600/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
-                {status === 'submitting' ? 'Отправка...' : 'Записаться на демонстрацию'}
-              </button>
-            </form>
-            
-            {status === 'success' && (
-              <p className="text-xs text-emerald-300 mt-3 text-center font-medium transition-all">
-                ✓ Спасибо! Мы скоро с вами свяжемся.
-              </p>
-            )}
-            {status === 'error' && (
-              <p className="text-xs text-rose-300 mt-3 text-center font-medium transition-all">
-                ✕ Произошла ошибка. Попробуйте еще раз.
-              </p>
-            )}
+            <p className="text-sm text-blue-100/95 font-sans font-light leading-relaxed mb-3">
+              Мы создаем уникальные, полностью адаптированные ИИ-решения под конкретные бизнес-процессы вашей компании.
+            </p>
+            <p className="text-sm text-blue-100/95 font-sans font-light leading-relaxed">
+              Разработаем инструменты любой сложности специально под ваши регламенты и специфику бренда, чтобы полностью автоматизировать рутинные задачи и повысить общую конверсию.
+            </p>
           </div>
         </motion.div>
       </div>

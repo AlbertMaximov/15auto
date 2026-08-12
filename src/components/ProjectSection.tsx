@@ -124,10 +124,10 @@ export default function ProjectSection({ projectsList }: ProjectSectionProps) {
           </div>
         </div>
 
-        {/* Projects Grid: 2 columns of horizontal-split cards on desktop (fits 4 projects cleanly in one standard view) */}
+        {/* Projects Grid: 1 column of large, spacious horizontal-split cards (making each card much larger, showcasing images beautifully and fitting ~2 projects on one screen vertically) */}
         <motion.div 
           layout
-          className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-12"
+          className="grid grid-cols-1 gap-8 max-w-5xl mx-auto mb-12"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
@@ -141,38 +141,38 @@ export default function ProjectSection({ projectsList }: ProjectSectionProps) {
                 whileHover={{ y: -4 }}
                 className="bg-white/90 backdrop-blur-md rounded-2xl border border-slate-200/70 shadow-[0_4px_20px_rgba(15,23,42,0.015)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.05)] hover:border-blue-200 transition-all duration-300 flex flex-col-reverse md:flex-row items-stretch overflow-hidden relative group"
               >
-                {/* Content Half Frame (Now on the left) */}
-                <div className="md:w-1/2 p-5 flex flex-col justify-between">
+                {/* Content Half Frame (Now on the left, extra spacious padding) */}
+                <div className="md:w-1/2 p-6 sm:p-8 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-base sm:text-lg font-display font-bold text-slate-900 tracking-tight leading-snug group-hover:text-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between mb-2.5">
+                      <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900 tracking-tight leading-snug group-hover:text-blue-600 transition-colors duration-300">
                         {project.title}
                       </h3>
                     </div>
                     
-                    <p className="text-xs text-slate-500 font-sans font-light leading-relaxed mb-3 line-clamp-2">
+                    <p className="text-xs sm:text-sm text-slate-600 font-sans font-light leading-relaxed mb-4">
                       {project.description}
                     </p>
 
-                    {/* Key Advantages Checklist - concise and high density */}
-                    <ul className="space-y-1.5 mb-4">
-                      {project.advantages.slice(0, 2).map((adv, idx) => (
+                    {/* Key Advantages Checklist - spacious and fully legible */}
+                    <ul className="space-y-2 mb-6">
+                      {project.advantages.slice(0, 4).map((adv, idx) => (
                         <li key={idx} className="flex items-start">
-                          <div className="w-3.5 h-3.5 rounded-full bg-blue-500/10 flex items-center justify-center mr-1.5 mt-0.5 shrink-0 border border-blue-500/15">
-                            <Check className="w-2 h-2 text-blue-600" />
+                          <div className="w-4 h-4 rounded-full bg-blue-500/10 flex items-center justify-center mr-2 mt-0.5 shrink-0 border border-blue-500/15">
+                            <Check className="w-2.5 h-2.5 text-blue-600" />
                           </div>
-                          <span className="text-[10.5px] font-sans font-normal text-slate-600 leading-normal line-clamp-1">{adv}</span>
+                          <span className="text-xs sm:text-[13px] font-sans font-normal text-slate-600 leading-normal">{adv}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Compact Bottom Section: Business Value Tag & Action */}
-                  <div className="space-y-3 pt-2 border-t border-slate-100">
+                  <div className="space-y-4 pt-3 border-t border-slate-100">
                     {project.valueTag && (
-                      <div className="flex items-start gap-1.5">
-                        <TrendingUp className="w-3 h-3 text-blue-500 mt-0.5 shrink-0" />
-                        <p className="text-[10px] font-sans font-medium text-slate-600 leading-tight line-clamp-1">
+                      <div className="flex items-start gap-2">
+                        <TrendingUp className="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0" />
+                        <p className="text-xs font-sans font-medium text-slate-600 leading-tight">
                           {project.valueTag}
                         </p>
                       </div>
@@ -183,7 +183,7 @@ export default function ProjectSection({ projectsList }: ProjectSectionProps) {
                         setSelectedProject(project);
                         setFormStatus('idle');
                       }}
-                      className="w-full inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-[11px] font-display font-semibold py-2 rounded-lg transition-all duration-300 shadow-sm cursor-pointer"
+                      className="w-full inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-display font-semibold py-2.5 rounded-lg transition-all duration-300 shadow-sm cursor-pointer"
                     >
                       Открыть подробности о проекте
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -192,7 +192,7 @@ export default function ProjectSection({ projectsList }: ProjectSectionProps) {
                 </div>
 
                 {/* Visual Half Frame (Now on the right) */}
-                <div className="relative md:w-1/2 shrink-0 min-h-[180px] md:min-h-full bg-slate-100 border-b md:border-b-0 md:border-l border-slate-200/60 overflow-hidden">
+                <div className="relative md:w-1/2 shrink-0 min-h-[240px] md:min-h-full bg-slate-100 border-b md:border-b-0 md:border-l border-slate-200/60 overflow-hidden">
                   <img 
                     src={project.imagePath} 
                     alt={project.title} 
